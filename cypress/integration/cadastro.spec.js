@@ -6,6 +6,11 @@ let chance = new Chance()
 
 context('Cadastro', () => {
     it('Cadastro de usuário no site', () => {
+    
+        cy.intercept('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')
+        cy.intercept('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable')
+        cy.intercept('POST', '**/api/1/databases/userdetails/collections/usertable?**').as('postUserTable')
+                
         cy.visit('Register.html');
         cy.get('input[placeholder="First Name"]').type(chance.first())
         cy.get('input[ng-model^=Last]').type(chance.last())
@@ -26,12 +31,15 @@ context('Cadastro', () => {
         cy.get('#firstpassword').type('#Pocoyo2020')
         cy.get('#secondpassword').type('#Pocoyo2020')
 
+        //Inserir Imagem
         cy.get('#imagesrc').attachFile('imagen.jpg')
-        cy.get('#submitbtn').click()
-        
 
-        
+        cy.wait('@getNewTable').then((resNewTable) =>{
+           expect(resNewTable.status).to.eq(200)
+        })
+
+        cy.url().should('contain', 'WebTable')
+        cy.get('#submitbtn').click()
+             
     });
 });
-
-//cy.get('button[value="Refresh"]').click()
