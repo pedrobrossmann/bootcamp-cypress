@@ -1,0 +1,37 @@
+/// <reference types="cypress" />
+
+let Chance = require('chance')
+let chance = new Chance()
+
+
+context('Cadastro', () => {
+    it('Cadastro de usuário no site', () => {
+        cy.visit('Register.html');
+        cy.get('input[placeholder="First Name"]').type(chance.first())
+        cy.get('input[ng-model^=Last]').type(chance.last())
+        cy.get('textarea[ng-model="Adress"]').type(chance.address())
+        cy.get('input[ng-model="EmailAdress"]').type(chance.email())
+        cy.get('input[ng-model="Phone"').type(chance.phone({ formatted: false}))
+        cy.get('input[value=FeMale]').check()
+        cy.get('#checkbox1').check()
+        cy.get('input[value=Movies]').check()
+        cy.get('input[type=checkbox]').check('Cricket')
+        //cy.get('#msdd').select('Bulgarian')
+        cy.get('#Skills').select('Android')
+        cy.get('#countries').select('Afghanistan')
+        cy.get('#country').select('Bangladesh', {force: true})
+        cy.get('#yearbox').select('1992')
+        cy.get('select[placeholder=Month]').select('February')
+        cy.get('#daybox').select('4')
+        cy.get('#firstpassword').type('#Pocoyo2020')
+        cy.get('#secondpassword').type('#Pocoyo2020')
+
+        cy.get('#imagesrc').attachFile('imagen.jpg')
+        cy.get('#submitbtn').click()
+        
+
+        
+    });
+});
+
+//cy.get('button[value="Refresh"]').click()
