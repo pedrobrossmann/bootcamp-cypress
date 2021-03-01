@@ -3,7 +3,6 @@
 let Chance = require('chance')
 let chance = new Chance()
 
-
 context('Cadastro', () => {
     it('Cadastro de usuário no site', () => {
     

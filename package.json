@@ -3,9 +3,19 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-
     "scripts": {
         "cy:open": "npx cypress open",
         "cy:run": "npx cypress run"
+    },
+    "devDependencies": {
+        "cypress-cucumber-preprocessor": "^4.0.1",
+        "cypress-file-upload": "^5.0.2"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
+    },
+    "dependencies": {
+        "chance": "^1.1.7",
+        "cypress": "^6.5.0"
     }
 }

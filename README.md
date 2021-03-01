@@ -28,3 +28,13 @@ Para validar URL:
 
  cy.get('div[role=row] div[role=gridcell]').eq(4).find('div').as('gridCellPhone') //Salvar como variavel temporaria
  cy.get('@gridCellPhone').should('contain.text', '12345678910')
+
+Sobre cucumber:
+
+* Cypress para olhar para arquivos .feature em vez de .spec
+* Todos arquivos de feature deve ficar dentro da pasta integration
+* Os passos para interpletar deve ter o mesmo nome do arquivo
+
+ Given // Contexto
+ When  // Ação executada   
+ Then // Resultado esperado
