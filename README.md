@@ -38,3 +38,27 @@ Sobre cucumber:
  Given // Contexto
  When  // Ação executada   
  Then // Resultado esperado
+
+ Relatorios:
+
+ Relatorio com mochawesome
+
+ mocha -> Lib de execução de testes
+ 
+ mochawesome -> formato de relatorio nativo do cypress
+ 
+ mochawesome-report-generator -> gerar um relatorio baseado em um .json
+ -> Problema: Um arquivo .json para cada spec
+
+ mochawesome-merge -> unifica o resultado em varios .json em um arquivo unico
+
+ cypress-multi-reporters -> permite o uso de multiplos tipos de relatório ao final da função
+
+npm install -D mocha mochawesome mochawesome-report-generator mochawesome-merge cypress-multi-reporters
+
+Relatorio com cucumber HTML Reports
+
+cucumber-html-reporter -> gera um relatorio html baseado nos arquivos
+.cucumber.json
+
+node cypress/reports/reporter.js
