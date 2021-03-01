@@ -52,6 +52,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          token: ${{ github.token }}
-          branch: gh-pages
-          folder: cypress/reports
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           BRANCH: gh-pages
+           FOLDER: cypress/reports
