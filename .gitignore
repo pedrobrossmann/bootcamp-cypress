@@ -1,2 +1,16 @@
-node_modules
-node_modules
+# dependencias
+node_modules/
+
+# relatorios mocha
+mochawesome-report
+
+# relatorios cucumber
+cypress/reports/index.html
+cypress/reports/index.html.json
+cypress/reports/cucumber-json/**
+
+# videos
+cypress/videos
+
+# outros
+.DS_Store
