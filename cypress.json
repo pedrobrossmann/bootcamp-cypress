@@ -2,6 +2,8 @@
     "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
     "baseUrl": "http://demo.automationtesting.in/",
     "experimentalSourceRewriting":true,
+    "experimentalNetworkStubbing": true,
+    "video": false,
     "testFiles": "**/*.*spec.*",
     "reporter": "cypress-multi-reporters",
     "reporterOptions": {

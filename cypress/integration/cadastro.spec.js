@@ -5,10 +5,10 @@ let chance = new Chance()
 
 context('Cadastro', () => {
     it('Cadastro de usuário no site', () => {
-    
-        cy.intercept('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')
-        cy.intercept('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable')
-        cy.intercept('POST', '**/api/1/databases/userdetails/collections/usertable?**').as('postUserTable')
+        cy.server()
+        cy.route('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')
+        cy.route('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable')
+        cy.rout('POST', '**/api/1/databases/userdetails/collections/usertable?**').as('postUserTable')
                 
         cy.visit('Register.html');
         cy.get('input[placeholder="First Name"]').type(chance.first())

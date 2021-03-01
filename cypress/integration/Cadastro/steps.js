@@ -5,9 +5,10 @@ let Chance = require('chance')
 let chance = new Chance()
 
 Given(/^que acesso o site$/, () => {
-    cy.intercept('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')
-    cy.intercept('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable')
-    cy.intercept('POST', '**/api/1/databases/userdetails/collections/usertable?**').as('postUserTable')
+    cy.server()
+    cy.route('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')
+    cy.route('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable')
+    cy.route('POST', '**/api/1/databases/userdetails/collections/usertable?**').as('postUserTable')
     cy.visit('Register.html');
 });
 
