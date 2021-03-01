@@ -2,5 +2,5 @@
     "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
     "baseUrl": "http://demo.automationtesting.in/",
     "experimentalSourceRewriting":true,
-    "testFiles": "**/*.{feature, features}"
+    "testFiles": "**/*.{feature,features}"
 }
