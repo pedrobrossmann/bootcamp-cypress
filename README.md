@@ -62,3 +62,5 @@ cucumber-html-reporter -> gera um relatorio html baseado nos arquivos
 .cucumber.json
 
 node cypress/reports/reporter.js
+
+.
