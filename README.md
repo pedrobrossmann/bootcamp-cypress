@@ -1,66 +1,25 @@
-Informações
+# Testes e2e - Bootcamp realizado pelo Samuel Lucas [Agilizei](https://www.youtube.com/c/Agilizei/featured)
 
-Para captura de input:
+### Tecnologias Utilizadas:
+* Framework para crição dos testes [cypress](https://www.cypress.io/)
 
-* input[ng-model^⁼Name] //O acento circonflexto server para pesquisar tudo que começa com "Name"
+#### 1. Clone o projeto
 
-* input[ng-model$⁼Name] //O cifrão server para pesquisar tudo que termina com "Name"
+```
+git clone https://github.com/pedrobrossmann/training-camp-cypress-course.git
+training-camp-cypress-course
+```
 
-* input[ng-model*⁼Nam] //O asterisco server para pesquisas em tudo"
+#### 2. Atualize as dependencias
 
-
-Para capturar retorno do servidor:
-
- cy.intercept('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')
- //Os ** server para ignorar tudo que vem antes ou depois da rota. 
-
- cy.wait('@getNewTable').then((resNewTable) =>{
-            cy.log(resNewTable)
-    })
-
-Para validar URL:
-
- cy.url().should('contain', 'WebTable')
-
- Para armazenar em uma variavel temporaria:
-
- //Nesse caso podemos utilziar o .as para armazenar em uma variavel temporaria e fazer asserções futuramente. 
-
- cy.get('div[role=row] div[role=gridcell]').eq(4).find('div').as('gridCellPhone') //Salvar como variavel temporaria
- cy.get('@gridCellPhone').should('contain.text', '12345678910')
-
-Sobre cucumber:
-
-* Cypress para olhar para arquivos .feature em vez de .spec
-* Todos arquivos de feature deve ficar dentro da pasta integration
-* Os passos para interpletar deve ter o mesmo nome do arquivo
-
- Given // Contexto
- When  // Ação executada   
- Then // Resultado esperado
-
- Relatorios:
-
- Relatorio com mochawesome
-
- mocha -> Lib de execução de testes
- 
- mochawesome -> formato de relatorio nativo do cypress
- 
- mochawesome-report-generator -> gerar um relatorio baseado em um .json
- -> Problema: Um arquivo .json para cada spec
-
- mochawesome-merge -> unifica o resultado em varios .json em um arquivo unico
-
- cypress-multi-reporters -> permite o uso de multiplos tipos de relatório ao final da função
-
-npm install -D mocha mochawesome mochawesome-report-generator mochawesome-merge cypress-multi-reporters
-
-Relatorio com cucumber HTML Reports
-
-cucumber-html-reporter -> gera um relatorio html baseado nos arquivos
-.cucumber.json
-
-node cypress/reports/reporter.js
-
-.
+```
+npm install
+```
+#### 3. Execute o cypress com interface gráfica
+```
+npx cypress open
+```
+#### 4. Execute o cypress via linha de comando
+```
+npx cypress run
+```
